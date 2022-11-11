@@ -1,0 +1,63 @@
+﻿@model ProjetoEasypark.Models.Cliente
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoCarro" class="control-label"></label>
+                <input asp-for="TipoCarro" class="form-control" />
+                <span asp-validation-for="TipoCarro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModeloCarro" class="control-label"></label>
+                <input asp-for="ModeloCarro" class="form-control" />
+                <span asp-validation-for="ModeloCarro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlacaCarro" class="control-label"></label>
+                <input asp-for="PlacaCarro" class="form-control" />
+                <span asp-validation-for="PlacaCarro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Registro" class="control-label"></label>
+                <input asp-for="Registro" class="form-control" />
+                <span asp-validation-for="Registro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoVaga" class="control-label"></label>
+                <select asp-for="TipoVaga" class="form-control" asp-items="Html.GetEnumSelectList<TipoVaga>()"></select>
+                <span asp-validation-for="TipoVaga" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

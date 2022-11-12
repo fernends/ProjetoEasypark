@@ -14,5 +14,6 @@ namespace ProjetoEasypark.Models
         }
 
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Estacionamento> Estacionamentos { get; set; }
     }
 }

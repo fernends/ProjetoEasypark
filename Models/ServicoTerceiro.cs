@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -57,8 +58,8 @@ namespace ProjetoEasypark.Models
 
     public enum TipoServico
     {
-        Chaveiro,
-        LavaJato,
-        Reboque
+        [Description("Chaveiro")] Chaveiro,
+        [Description("Lava Jato")] LavaJato,
+        [Description("Reboque")] Reboque
     }
 }

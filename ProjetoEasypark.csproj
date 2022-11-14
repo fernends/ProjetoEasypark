@@ -14,23 +14,10 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\ServicoTerceiroesController.cs" />
-    <Compile Remove="Views\Home\Index1.cshtml.cs" />
-    <Compile Remove="Views\Home\Index3.cshtml.cs" />
-    <Compile Remove="Views\Home\Index4.cshtml.cs" />
-    <Compile Remove="Views\Home\SobreNos.cshtml.cs" />
-    <Compile Remove="Views\Home\TermoDeUso.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Views\Home\Component.razor" />
-    <Content Remove="Views\Home\Index1.cshtml" />
-    <Content Remove="Views\Home\Index2.cshtml" />
-    <Content Remove="Views\Home\Index3.cshtml" />
-    <Content Remove="Views\Home\Index4.cshtml" />
-    <Content Remove="Views\Home\Index5.cshtml" />
-    <Content Remove="Views\Home\SobreNos.cshtml" />
-    <Content Remove="Views\Home\SobreNoscshtml.cshtml" />
-    <Content Remove="Views\Home\TermoDeUso.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

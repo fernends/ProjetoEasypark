@@ -23,6 +23,11 @@ namespace ProjetoEasypark.Controllers
             return View();            
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {

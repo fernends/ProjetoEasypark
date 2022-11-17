@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +24,56 @@ namespace ProjetoEasypark.Controllers
         public IActionResult Login()
         {
             return View();            
+        }
+
+        [HttpPost]
+        //[AllowAnonymous]
+        public async Task<IActionResult> Login([Bind("Nome,Senha")] Usuario usuario)
+        {
+            var user = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.Nome == usuario.Nome);
+
+            if (user == null)
+            {
+                ViewBag.Mensage = "Usuário e/ou Senha inválidos!";
+                return View();
+            }
+
+            bool isSenhaOk = BCrypt.Net.BCrypt.Verify(usuario.Senha, user.Senha);
+
+            if (isSenhaOk)
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, user.Nome),
+                    new Claim(ClaimTypes.NameIdentifier, user.Nome),
+                    new Claim(ClaimTypes.Role, user.Perfil.ToString())
+                };
+
+                var userIdentity = new ClaimsIdentity(claims, "login");
+
+                ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+
+                var props = new AuthenticationProperties
+                {
+                    AllowRefresh = true,
+                    ExpiresUtc = DateTime.Now.ToLocalTime().AddDays(7),
+                    IsPersistent = true
+                };
+
+                await HttpContext.SignInAsync(principal, props);
+
+                return Redirect("/");
+
+            }
+
+            ViewBag.Mensage = "Usuário e/ou Senha inválidos!";
+            return View();
+        }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
         // GET: Usuarios

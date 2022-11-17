@@ -26,8 +26,8 @@ namespace ProjetoEasypark.Models
         [Display(Name = "E-mail")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Obrigatório informar o lugadouro!")]
-        [Display(Name = "Lugadouro")]
+        [Required(ErrorMessage = "Obrigatório informar o lugradouro!")]
+        [Display(Name = "Lugradouro")]
         public string Lugadouro { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar o número!")]

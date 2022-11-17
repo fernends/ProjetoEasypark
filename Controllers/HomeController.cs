@@ -23,6 +23,14 @@ namespace ProjetoEasypark.Controllers
             return View();
         }
 
+        public IActionResult SobreNos()
+        {
+            return View();
+        }
+        public ActionResult FaleConosco()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

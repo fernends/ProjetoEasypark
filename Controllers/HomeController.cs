@@ -27,11 +27,15 @@ namespace ProjetoEasypark.Controllers
         {
             return View();
         }
-        public ActionResult FaleConosco()
+        public IActionResult FaleConosco()
         {
             return View();
         }
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult TermoDeUso()
         {
             return View();
         }
